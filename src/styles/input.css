@@ -1,2 +1,20 @@
 @import "tailwindcss";
 /* npx @tailwindcss/cli -i ./src/styles/input.css -o ./src/styles/output.css --watch */
+
+@font-face {
+  font-family: giloryBold;
+  src: url(../fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: giloryMedium;
+  src: url(../fonts/Gilroy-Medium.ttf);
+}
+
+@layer utilities {
+  .giloryBold {
+    font-family: giloryBold;
+  }
+  .giloryMedium {
+    font-family: giloryMedium;
+  }
+}

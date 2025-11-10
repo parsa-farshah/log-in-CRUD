@@ -9,16 +9,68 @@
   <body>
     <!-- all sections -->
     <main
-      class="w-full h-dvh bg-radial from-[#0085FF] to-[#003465] flex justify-center items-center"
+      class="w-full h-dvh bg-radial from-[#0085FF] to-[#003465] flex justify-center items-center text-white"
     >
+      <img
+        class="w-20 h-20 absolute top-1 left-[30%]"
+        src="src/images/Group.png"
+        alt=""
+      />
       <!-- page center -->
       <div
-        class="w-[90%] md:w-[70%] h-[80%] rounded-3xl bg-radial from-[#0085FF] to-[#003465] shadow-[24px] flex justify-center items-center"
+        class="w-[90%] md:w-[70%] h-[90%] rounded-3xl bg-radial from-[#0085FF] to-[#003465] shadow-[24px] flex justify-center items-center"
       >
         <!-- log in -->
         <div
-          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882C1] opacity-30"
-        ></div>
+          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-10 px-[8%]"
+        >
+          <!-- logo -->
+          <div class="w-full flex justify-center">
+            <img
+              class="w-10 h-10 opacity-100"
+              src="src/images/login.png"
+              alt=""
+            />
+          </div>
+          <!-- section bottom -->
+          <div class="w-full h-full flex flex-col gap-y-6">
+            <h5 class="mt-10 giloryBold text-2xl">Login</h5>
+            <!-- email -->
+            <div>
+              <label class="giloryMedium text-[13px]" for="email">Email</label>
+              <input
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
+                type="text"
+                name=""
+                id="email"
+                placeholder="username@gmail.com"
+              />
+            </div>
+            <!-- end email -->
+            <!-- password -->
+            <div>
+              <label class="giloryMedium text-[13px]" for="password"
+                >Password</label
+              >
+              <input
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 placeholder:text-[#BCBEC0] mb-2"
+                type="text"
+                name=""
+                id="password"
+                placeholder="Password"
+              />
+              <span class="giloryMedium text-[13px]">Forgot Password ?</span>
+            </div>
+            <!-- end password -->
+            <!-- button -->
+            <button
+              class="bg-[#003465] py-2.5 flex justify-center items-center rounded-lg cursor-pointer giloryBold"
+            >
+              Sign in
+            </button>
+            <!-- end button -->
+          </div>
+        </div>
       </div>
     </main>
   </body>
