@@ -48,11 +48,12 @@
       />
       <!-- page center -->
       <div
-        class="w-[90%] md:w-[70%] h-[90%] rounded-3xl bg-radial from-[#0084ffa2] to-[#003465b7] shadow-[24px] flex justify-center items-center relative z-10"
+        class="w-[90%] md:w-[70%] h-[90%] rounded-3xl bg-radial from-[#0084ffa2] to-[#003465b7] shadow-[24px] flex justify-center items-center relative z-10 overflow-hidden"
       >
-        <!-- log in -->
+        <!----------------------------------- log in ------------------------->
         <div
-          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-10 px-[8%]"
+          id="signInWrapper"
+          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-10 px-[8%] absolute -left-full top-1/2 -translate-1/2 duration-300"
         >
           <!-- logo -->
           <div class="w-full flex justify-center">
@@ -102,12 +103,86 @@
                 Sign in
               </button>
               <h5 class="text-[11px] giloryMedium mt-2">
-                Dont't have an account yet?
+                Dont't have an account yet? Sign up
               </h5>
             </div>
             <!-- end button -->
           </div>
         </div>
+        <!--------------------------------- sign up ---------------------------->
+        <div
+          id="signUpWrapper"
+          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-3 px-[8%] duration-300 absolute left-1/2 top-1/2 -translate-1/2"
+        >
+          <!-- logo -->
+          <!-- <div class="w-full flex justify-center">
+            <img
+              class="w-10 h-10 opacity-100"
+              src="src/images/login.png"
+              alt=""
+            />
+          </div> -->
+          <!-- section bottom -->
+          <div class="w-full h-full flex flex-col gap-y-6">
+            <h5 class="mt-3 giloryBold text-2xl">Sign up</h5>
+            <!-- email -->
+            <div>
+              <label class="giloryMedium text-[13px]" for="userName"
+                >User Name</label
+              >
+              <input
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
+                type="text"
+                name=""
+                id="userName"
+                placeholder="James"
+                autocomplete="off"
+              />
+            </div>
+            <!-- end email -->
+            <!-- email -->
+            <div>
+              <label class="giloryMedium text-[13px]" for="email">Email</label>
+              <input
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
+                type="text"
+                name=""
+                id="email"
+                placeholder="username@gmail.com"
+                autocomplete="off"
+              />
+            </div>
+            <!-- end email -->
+            <!-- password -->
+            <div>
+              <label class="giloryMedium text-[13px]" for="password"
+                >Password</label
+              >
+              <input
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 placeholder:text-[#BCBEC0] mb-2 outline-none"
+                type="text"
+                name=""
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+              />
+            </div>
+            <!-- end password -->
+            <!-- button -->
+            <div>
+              <button
+                class="bg-[#003465] w-full py-2.5 flex justify-center items-center rounded-lg cursor-pointer giloryBold"
+              >
+                Sign up
+              </button>
+              <h5 id="sigInBtn" class="text-[11px] giloryMedium mt-2">
+                Already have an account? Sign in
+              </h5>
+            </div>
+            <!-- end button -->
+          </div>
+        </div>
+        <!-- end signup -->
       </div>
     </main>
   </body>
