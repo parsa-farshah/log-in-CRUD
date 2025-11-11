@@ -7,6 +7,9 @@ let $errorUserName = document.querySelector("#errorUserName");
 let $errorInputEmpty = document.querySelector("#errorInputEmpty");
 let $errorEmail = document.querySelector("#errorEmail");
 let $errorPassword = document.querySelector("#errorPassword");
+let $errorExist = document.querySelector("#errorExist");
+let $alertSignUp = document.querySelector("#alertSignUp");
+
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
 );
@@ -26,6 +29,17 @@ $signUpBtnPage.addEventListener("click", () => {
   $signInWrapper.classList.add("-left-full");
 });
 
+$signUpWrapperInp[0].addEventListener("input", () => {
+  $errorUserName.classList.add("hidden");
+});
+$signUpWrapperInp[1].addEventListener("input", () => {
+  $errorInputEmpty.classList.add("hidden");
+});
+$signUpWrapperInp[2].addEventListener("input", () => {
+  $errorPassword.classList.add("hidden");
+});
+
+////////////////////////////////////////////////// sign up click
 $signUpBtn.addEventListener("click", () => {
   // check if email repititive
 
@@ -46,6 +60,7 @@ $signUpBtn.addEventListener("click", () => {
       // mockapi returns only incomplete tasks
 
       if (tasks == undefined) {
+        /////////////////////////////////////////// error input empty
         if (
           $signUpWrapperInp[0].value == "" ||
           $signUpWrapperInp[1].value == "" ||
@@ -55,13 +70,19 @@ $signUpBtn.addEventListener("click", () => {
           console.log("input empty");
 
           return;
+        } else {
+          $errorInputEmpty.classList.add("hidden");
         }
+        /////////////////////////////////////////// error username
         if ($signUpWrapperInp[0].value.search(/^[a-z0-9_-]{3,15}$/) == -1) {
           $errorUserName.classList.remove("hidden");
           console.log("userName");
 
           return;
+        } else {
+          $errorUserName.classList.add("hidden");
         }
+        /////////////////////////////////////////// error email
         if (
           $signUpWrapperInp[1].value.search(
             /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
@@ -70,7 +91,10 @@ $signUpBtn.addEventListener("click", () => {
           $errorEmail.classList.remove("hidden");
           console.log("email");
           return;
+        } else {
+          $errorEmail.classList.add("hidden");
         }
+        /////////////////////////////////////////// error password
         if (
           $signUpWrapperInp[2].value.search(
             /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
@@ -80,6 +104,8 @@ $signUpBtn.addEventListener("click", () => {
           console.log("password");
 
           return;
+        } else {
+          $errorPassword.classList.add("hidden");
         }
 
         // add
@@ -101,13 +127,17 @@ $signUpBtn.addEventListener("click", () => {
             // handle error
           })
           .then((task) => {
-            alert("user add");
+            // alert add Account created successfully.
+            setTimeout(() => {
+              $alertSignUp.classList.remove("-left-full");
+              $alertSignUp.classList.add("-left-0");
+            }, 2000);
           })
           .catch((error) => {
             console.log(error);
           });
       } else {
-        alert("user exist");
+        $errorExist.classList.remove("hidden");
       }
     })
     .catch((error) => {
