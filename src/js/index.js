@@ -211,10 +211,10 @@ function removeBtn(id) {
       setTimeout(() => {
         $alertDelete.classList.remove("-left-0");
         $alertDelete.classList.add("-left-full");
-      }, 500);
+      }, 1500);
       setTimeout(() => {
         location.reload();
-      }, 1000);
+      }, 3000);
     })
     .catch((error) => {
       // handle error
@@ -244,12 +244,12 @@ function editBtn(id) {
     .then((task) => {
       // Do something with updated task
       // alert add Account edited successfully.
-      $alertDelete.classList.remove("-left-full");
-      $alertDelete.classList.add("-left-0");
+      $alertEdit.classList.remove("-left-full");
+      $alertEdit.classList.add("-left-0");
       setTimeout(() => {
-        $alertDelete.classList.remove("-left-0");
-        $alertDelete.classList.add("-left-full");
-      }, 500);
+        $alertEdit.classList.remove("-left-0");
+        $alertEdit.classList.add("-left-full");
+      }, 2000);
     })
     .catch((error) => {
       // handle error
