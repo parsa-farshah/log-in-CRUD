@@ -3,6 +3,10 @@ let $signUpBtnPage = document.querySelector("#signUpPage");
 let $signUpWrapper = document.querySelector("#signUpWrapper");
 let $signInWrapper = document.querySelector("#signInWrapper");
 let $signUpBtn = document.querySelector("#signUp");
+let $errorUserName = document.querySelector("#errorUserName");
+let $errorInputEmpty = document.querySelector("#errorInputEmpty");
+let $errorEmail = document.querySelector("#errorEmail");
+let $errorPassword = document.querySelector("#errorPassword");
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
 );
@@ -40,16 +44,50 @@ $signUpBtn.addEventListener("click", () => {
     })
     .then((tasks) => {
       // mockapi returns only incomplete tasks
-      console.log(tasks);
-      if (tasks == undefined) {
-        // add
 
+      if (tasks == undefined) {
+        if (
+          $signUpWrapperInp[0].value == "" ||
+          $signUpWrapperInp[1].value == "" ||
+          $signUpWrapperInp[2].value == ""
+        ) {
+          $errorInputEmpty.classList.remove("hidden");
+          console.log("input empty");
+
+          return;
+        }
+        if ($signUpWrapperInp[0].value.search(/^[a-z0-9_-]{3,15}$/) == -1) {
+          $errorUserName.classList.remove("hidden");
+          console.log("userName");
+
+          return;
+        }
+        if (
+          $signUpWrapperInp[1].value.search(
+            /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+          ) == -1
+        ) {
+          $errorEmail.classList.remove("hidden");
+          console.log("email");
+          return;
+        }
+        if (
+          $signUpWrapperInp[2].value.search(
+            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
+          ) == -1
+        ) {
+          $errorPassword.classList.remove("hidden");
+          console.log("password");
+
+          return;
+        }
+
+        // add
         const newTask = {
           username: $signUpWrapperInp[0].value,
           email: $signUpWrapperInp[1].value,
           password: $signUpWrapperInp[2].value,
         };
-
         fetch("https://6912e51452a60f10c8232605.mockapi.io/users", {
           method: "POST",
           headers: { "content-type": "application/json" },

@@ -48,7 +48,7 @@
       />
       <!-- page center -->
       <div
-        class="w-[90%] md:w-[70%] h-[90%] rounded-3xl bg-radial from-[#0084ffa2] to-[#003465b7] shadow-[24px] flex justify-center items-center relative z-10 overflow-hidden"
+        class="w-[90%] md:w-[70%] h-[95%] rounded-3xl bg-radial from-[#0084ffa2] to-[#003465b7] shadow-[24px] flex justify-center items-center relative z-10 overflow-hidden"
       >
         <!----------------------------------- log in ------------------------->
         <div
@@ -115,7 +115,7 @@
         <!--------------------------------- sign up ---------------------------->
         <div
           id="signUpWrapper"
-          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[90%] rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-3 px-[8%] duration-300 absolute left-1/2 top-1/2 -translate-1/2"
+          class="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-fit rounded-[28px] bg-[#5882c146] border border-[#8ea2be77] py-3 px-[8%] duration-300 absolute left-1/2 top-1/2 -translate-1/2 pb-3"
         >
           <!-- logo -->
           <!-- <div class="w-full flex justify-center">
@@ -134,26 +134,39 @@
                 >User Name</label
               >
               <input
-                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#8a8a8a] focus:outline-none"
                 type="text"
                 name=""
                 id="userName"
                 placeholder="James"
                 autocomplete="off"
               />
+              <h5
+                id="errorUserName"
+                class="w-full giloryMedium border p-1 text-[#ffffffe3] font-semibold text-[13px] mt-2 hidden"
+              >
+                Invalid username. Use 3–15 lowercase letters, numbers, “_” or
+                “-”
+              </h5>
             </div>
             <!-- end email -->
             <!-- email -->
             <div>
               <label class="giloryMedium text-[13px]" for="email">Email</label>
               <input
-                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#8a8a8a] focus:outline-none"
                 type="text"
                 name=""
                 id="email"
                 placeholder="username@gmail.com"
                 autocomplete="off"
               />
+              <h5
+                id="errorEmail"
+                class="w-full giloryMedium border p-1 text-[#ffffffe3] font-semibold text-[13px] mt-2 hidden"
+              >
+                Email Is Wrong
+              </h5>
             </div>
             <!-- end email -->
             <!-- password -->
@@ -162,17 +175,29 @@
                 >Password</label
               >
               <input
-                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 placeholder:text-[#BCBEC0] mb-2 outline-none"
+                class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#8a8a8a] mb-2 outline-none"
                 type="text"
                 name=""
                 id="password"
                 placeholder="Password"
                 autocomplete="off"
               />
+              <h5
+                id="errorPassword"
+                class="w-full giloryMedium border p-1 text-[#ffffffe3] font-semibold text-[13px] mt-2 hidden"
+              >
+                Invalid password. Must be at least 8 characters long and include uppercase, lowercase, number, and special character.
+              </h5>
             </div>
             <!-- end password -->
             <!-- button -->
             <div>
+              <h5
+                id="errorInputEmpty"
+                class="w-full giloryMedium border p-1 text-[#ffffffe3] font-semibold text-[13px] mt-2 hidden mb-2"
+              >
+                input is empty
+              </h5>
               <button
                 id="signUp"
                 class="bg-[#003465] w-full py-2.5 flex justify-center items-center rounded-lg cursor-pointer giloryBold"
