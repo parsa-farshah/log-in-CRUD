@@ -9,6 +9,8 @@
       "Courier New", monospace;
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-white: #fff;
@@ -271,8 +273,20 @@
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-14 {
+    margin-top: calc(var(--spacing) * 14);
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
@@ -307,6 +321,9 @@
   .h-\[95\%\] {
     height: 95%;
   }
+  .h-\[95\] {
+    height: 95;
+  }
   .h-dvh {
     height: 100dvh;
   }
@@ -339,6 +356,9 @@
   }
   .w-\[90\%\] {
     width: 90%;
+  }
+  .w-\[95\%\] {
+    width: 95%;
   }
   .w-\[100\%\] {
     width: 100%;
@@ -392,6 +412,9 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -420,8 +443,14 @@
   .border-\[\#BCBEC0\] {
     border-color: #BCBEC0;
   }
+  .bg-\[\#09f\] {
+    background-color: #09f;
+  }
   .bg-\[\#003465\] {
     background-color: #003465;
+  }
+  .bg-\[\#003465b7\] {
+    background-color: #003465b7;
   }
   .bg-\[\#5882c146\] {
     background-color: #5882c146;
@@ -434,6 +463,12 @@
   }
   .bg-\[\#fff\] {
     background-color: #fff;
+  }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
+  .bg-amber-300 {
+    background-color: var(--color-amber-300);
   }
   .bg-amber-500 {
     background-color: var(--color-amber-500);
@@ -473,8 +508,23 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
   .px-\[8\%\] {
     padding-inline: 8%;
+  }
+  .px-\[20\%\] {
+    padding-inline: 20%;
+  }
+  .px-\[20\] {
+    padding-inline: 20;
+  }
+  .px-\[30\%\] {
+    padding-inline: 30%;
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);

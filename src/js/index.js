@@ -9,6 +9,10 @@ let $errorEmail = document.querySelector("#errorEmail");
 let $errorPassword = document.querySelector("#errorPassword");
 let $errorExist = document.querySelector("#errorExist");
 let $alertSignUp = document.querySelector("#alertSignUp");
+let $myAccount = document.querySelector("#myAccount");
+let $myUserName = document.querySelector("#myUserName");
+let $myEmail = document.querySelector("#myEmail");
+let $myPassword = document.querySelector("#myPassword");
 
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
@@ -128,10 +132,40 @@ $signUpBtn.addEventListener("click", () => {
           })
           .then((task) => {
             // alert add Account created successfully.
+            $alertSignUp.classList.remove("-left-full");
+            $alertSignUp.classList.add("-left-0");
             setTimeout(() => {
-              $alertSignUp.classList.remove("-left-full");
-              $alertSignUp.classList.add("-left-0");
+              $alertSignUp.classList.remove("-left-0");
+              $alertSignUp.classList.add("-left-full");
             }, 2000);
+            /////////////////////////// add data to panell
+            const url = new URL(
+              "https://6912e51452a60f10c8232605.mockapi.io/users"
+            );
+            url.searchParams.append("username", $signUpWrapperInp[0].value);
+            url.searchParams.append("email", $signUpWrapperInp[1].value);
+            url.searchParams.append("password", $signUpWrapperInp[2].value);
+
+            fetch(url, {
+              method: "GET",
+              headers: { "content-type": "application/json" },
+            })
+              .then((res) => {
+                if (res.ok) {
+                  return res.json();
+                }
+                // handle error
+              })
+              .then((data) => {
+                $signUpWrapper.classList.add("hidden");
+                $myUserName.value = data[0].username;
+                $myEmail.value = data[0].email;
+                $myPassword.value = data[0].password;
+                $myAccount.classList.remove("hidden");
+              })
+              .catch((error) => {
+                // handle error
+              });
           })
           .catch((error) => {
             console.log(error);
