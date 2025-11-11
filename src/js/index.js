@@ -13,6 +13,8 @@ let $myAccount = document.querySelector("#myAccount");
 let $myUserName = document.querySelector("#myUserName");
 let $myEmail = document.querySelector("#myEmail");
 let $myPassword = document.querySelector("#myPassword");
+let $updateProf = document.querySelector("#updateProf");
+let $btnEdit = document.querySelector("#btnEdit");
 
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
@@ -162,6 +164,16 @@ $signUpBtn.addEventListener("click", () => {
                 $myEmail.value = data[0].email;
                 $myPassword.value = data[0].password;
                 $myAccount.classList.remove("hidden");
+                $btnEdit.innerHTML = `
+                <button onclick=removeBtn(${data[0].id}) class="bg-[#003465b7] px-3 py-1 rounded-md cursor-pointer"
+                  >
+                Remove Profile
+              </button>
+              <button onclick=editBtn(${data[0].id}) class="bg-[#003465b7] px-3 py-1 rounded-md cursor-pointer"
+                  >
+                Edit Profile
+              </button>
+              `;
               })
               .catch((error) => {
                 // handle error
@@ -178,3 +190,53 @@ $signUpBtn.addEventListener("click", () => {
       // handle error
     });
 });
+
+////////////////////////////////////////////// remove data
+function removeBtn(id) {
+  fetch(`https://6912e51452a60f10c8232605.mockapi.io/users/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // handle error
+    })
+    .then((task) => {
+      // Do something with deleted task
+      alert("deleted");
+    })
+    .catch((error) => {
+      // handle error
+    });
+}
+
+////////////////////////////////////////////// end remove data
+
+/////////////////////////////////////////////////edit data
+function editBtn(id) {
+  const editUser = {
+    username: $myUserName.value,
+    email: $myEmail.value,
+    password: $myPassword.value,
+  };
+  fetch(`https://6912e51452a60f10c8232605.mockapi.io/users/${id}`, {
+    method: "PUT", // or PATCH
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(editUser),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // handle error
+    })
+    .then((task) => {
+      // Do something with updated task
+      console.log(task);
+    })
+    .catch((error) => {
+      // handle error
+    });
+}
+///////////////////////////////////////////////// endedit data

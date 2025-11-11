@@ -226,7 +226,7 @@
         <!------------------------------------ my account ---------------------->
         <div
           id="myAccount"
-          class="w-[95%] h-[95%] bg-[#09f] rounded-3xl py-10 px-[30%] hidden"
+          class="w-[95%] h-[95%] bg-[#09fc] rounded-3xl py-10 px-[30%] hidden"
         >
           <h2 class="text-center giloryBold text-2xl">My Account</h2>
           <div class="mt-8 flex flex-col gap-y-6">
@@ -269,11 +269,7 @@
                 id=""
               />
             </div>
-            <div class="mt-5">
-              <button class="bg-[#003465b7] px-3 py-1 rounded-md">
-                Save Profile
-              </button>
-            </div>
+            <div id="btnEdit" class="mt-5"></div>
           </div>
         </div>
       </div>
@@ -286,6 +282,17 @@
           class="w-[300px] giloryBold bg-green-500 p-10 text-2xl rounded-2xl text-center"
         >
           Account created successfully.
+        </h2>
+      </div>
+      <!---------------------------------- alert deleted  ---------------------------->
+      <div
+        id="alertDelete"
+        class="w-full h-full fixed top-0 bg-[#272727be] z-40 flex justify-center items-center -left-full"
+      >
+        <h2
+          class="w-[300px] giloryBold bg-green-500 p-10 text-2xl rounded-2xl text-center"
+        >
+          Account Delete successfully.
         </h2>
       </div>
     </main>
