@@ -15,6 +15,8 @@ let $myEmail = document.querySelector("#myEmail");
 let $myPassword = document.querySelector("#myPassword");
 let $updateProf = document.querySelector("#updateProf");
 let $btnEdit = document.querySelector("#btnEdit");
+let $alertDelete = document.querySelector("#alertDelete");
+let $alertEdit = document.querySelector("#alertEdit");
 
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
@@ -203,8 +205,16 @@ function removeBtn(id) {
       // handle error
     })
     .then((task) => {
-      // Do something with deleted task
-      alert("deleted");
+      // alert add Account deleted successfully.
+      $alertDelete.classList.remove("-left-full");
+      $alertDelete.classList.add("-left-0");
+      setTimeout(() => {
+        $alertDelete.classList.remove("-left-0");
+        $alertDelete.classList.add("-left-full");
+      }, 500);
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     })
     .catch((error) => {
       // handle error
@@ -233,7 +243,13 @@ function editBtn(id) {
     })
     .then((task) => {
       // Do something with updated task
-      console.log(task);
+      // alert add Account edited successfully.
+      $alertDelete.classList.remove("-left-full");
+      $alertDelete.classList.add("-left-0");
+      setTimeout(() => {
+        $alertDelete.classList.remove("-left-0");
+        $alertDelete.classList.add("-left-full");
+      }, 500);
     })
     .catch((error) => {
       // handle error
