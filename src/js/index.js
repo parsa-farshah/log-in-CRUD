@@ -17,6 +17,10 @@ let $updateProf = document.querySelector("#updateProf");
 let $btnEdit = document.querySelector("#btnEdit");
 let $alertDelete = document.querySelector("#alertDelete");
 let $alertEdit = document.querySelector("#alertEdit");
+// sign in
+let $signInBtn = document.querySelector("#signInBtn");
+let $signInEmail = document.querySelector("#signInEmail");
+let $signInPassword = document.querySelector("#signInPassword");
 
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
@@ -223,7 +227,7 @@ function removeBtn(id) {
 
 ////////////////////////////////////////////// end remove data
 
-/////////////////////////////////////////////////edit data
+///////////////////////////////////////////////////////////edit data
 function editBtn(id) {
   const editUser = {
     username: $myUserName.value,
@@ -243,7 +247,7 @@ function editBtn(id) {
     })
     .then((task) => {
       // Do something with updated task
-      // alert add Account edited successfully.
+      ///////////////////////////////////// alert add Account edited successfully.
       $alertEdit.classList.remove("-left-full");
       $alertEdit.classList.add("-left-0");
       setTimeout(() => {
@@ -256,3 +260,46 @@ function editBtn(id) {
     });
 }
 ///////////////////////////////////////////////// endedit data
+
+//////////////////////////////////////////////////////////// sign in btn
+
+$signInBtn.addEventListener("click", () => {
+  fetch("https://6912e51452a60f10c8232605.mockapi.io/users", {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // handle error
+    })
+    .then((tasks) => {
+      tasks.map((val) => {
+        if (
+          val.email == $signInEmail.value &&
+          val.password == $signInPassword.value
+        ) {
+          $signInWrapper.classList.add("hidden");
+          $myUserName.value = val.username;
+          $myEmail.value = val.email;
+          $myPassword.value = val.password;
+          $myAccount.classList.remove("hidden");
+          $btnEdit.innerHTML = `
+                <button onclick=removeBtn(${val.id}) class="bg-[#003465b7] px-3 py-1 rounded-md cursor-pointer"
+                  >
+                Remove Profile
+              </button>
+              <button onclick=editBtn(${val.id}) class="bg-[#003465b7] px-3 py-1 rounded-md cursor-pointer"
+                  >
+                Edit Profile
+              </button>
+              `;
+        }
+      });
+      // Do something with the list of tasks
+    })
+    .catch((error) => {
+      // handle error
+    });
+});

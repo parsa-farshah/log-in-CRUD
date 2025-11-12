@@ -6,43 +6,43 @@
     <title>Log In CRUD</title>
     <link rel="stylesheet" href="src/styles/output.css" />
   </head>
-  <body>
+  <body class="w-full h-[100vh]">
     <!-- all sections -->
     <main
-      class="w-full h-dvh bg-radial from-[#0085FF] to-[#003465] flex justify-center items-center text-white overflow-hidden"
+      class="w-full h-full bg-radial from-[#0085FF] to-[#003465] flex justify-center items-center text-white overflow-hidden border"
     >
       <img
-        class="w-20 h-20 absolute top-1 left-[30%]"
+        class="w-20 h-20 absolute top-1 left-[30%] overflow-hidden"
         src="src/images/Group.png"
         alt=""
       />
       <img
-        class="w-[100px] absolute bottom-5 left-[2%] md:left-[10%] mix-blend-luminosity z-0"
+        class="w-[100px] absolute bottom-5 left-[2%] md:left-[10%] mix-blend-luminosity z-0 overflow-hidden"
         src="src/images/Group (7).png"
         alt=""
       />
       <img
-        class="w-[200px] absolute top-[5%] left-[60%] md:left-[55%] mix-blend-luminosity z-0"
+        class="w-[200px] absolute top-[5%] left-[60%] md:left-[55%] mix-blend-luminosity z-0 overflow-hidden hidden md:flex"
         src="src/images/Group (7).png"
         alt=""
       />
       <img
-        class="w-20 absolute left-[80%] md:left-[70%] top-[65%] -translate-1/2 z-10 mix-blend-luminosity"
+        class="w-20 absolute left-[80%] md:left-[70%] top-[65%] -translate-1/2 z-10 mix-blend-luminosity overflow-hidden"
         src="src/images/Group (5).png"
         alt=""
       />
       <img
-        class="w-14 absolute left-[88%] md:left-[72%] top-[72%] md:top-[70%] -translate-1/2 z-10 mix-blend-luminosity"
+        class="w-14 absolute left-[88%] md:left-[72%] top-[72%] md:top-[70%] -translate-1/2 z-10 mix-blend-luminosity overflow-hidden"
         src="src/images/Group (5).png"
         alt=""
       />
       <img
-        class="w-[50px] h-[30px] absolute left-[8%] md:left-[28%] top-[75%] md:top-[69%] -translate-1/2 z-10 mix-blend-luminosity"
+        class="w-[50px] h-[30px] absolute left-[8%] md:left-[28%] top-[75%] md:top-[69%] -translate-1/2 z-10 mix-blend-luminosity overflow-hidden"
         src="src/images/Group (1).png"
         alt=""
       />
       <img
-        class="w-[100px] h-[60px] absolute left-[10%] md:left-[30%] top-[68%] md:top-[62%] -translate-1/2 z-10 mix-blend-luminosity"
+        class="w-[100px] h-[60px] absolute left-[10%] md:left-[30%] top-[68%] md:top-[62%] -translate-1/2 z-10 mix-blend-luminosity overflow-hidden"
         src="src/images/Group (1).png"
         alt=""
       />
@@ -70,6 +70,7 @@
             <div>
               <label class="giloryMedium text-[13px]" for="email">Email</label>
               <input
+                id="signInEmail"
                 class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 text-[#BCBEC0] focus:outline-none"
                 type="text"
                 name=""
@@ -85,6 +86,7 @@
                 >Password</label
               >
               <input
+                id="signInPassword"
                 class="giloryMedium text-[13px] w-full h-8 bg-white rounded-sm mt-2 border border-[#BCBEC0] pl-4 py-2 placeholder:text-[#BCBEC0] mb-2 outline-none"
                 type="text"
                 name=""
@@ -98,6 +100,7 @@
             <!-- button -->
             <div>
               <button
+                id="signInBtn"
                 class="bg-[#003465] w-full py-2.5 flex justify-center items-center rounded-lg cursor-pointer giloryBold"
               >
                 Sign in
@@ -226,7 +229,7 @@
         <!------------------------------------ my account ---------------------->
         <div
           id="myAccount"
-          class="w-[95%] h-[95%] bg-[#09fc] rounded-3xl py-10 px-[30%] hidden"
+          class="w-[95%] h-[95%] bg-[#09fc] rounded-3xl py-10 px-[5%] sm:px-[15%] md:px-[30%] hidden"
         >
           <h2 class="text-center giloryBold text-2xl">My Account</h2>
           <div class="mt-8 flex flex-col gap-y-6">
@@ -269,7 +272,7 @@
                 id=""
               />
             </div>
-            <div id="btnEdit" class="mt-5"></div>
+            <div id="btnEdit" class="mt-5 flex flex-wrap gap-y-7 gap-5"></div>
           </div>
         </div>
       </div>
