@@ -21,6 +21,7 @@ let $alertEdit = document.querySelector("#alertEdit");
 let $signInBtn = document.querySelector("#signInBtn");
 let $signInEmail = document.querySelector("#signInEmail");
 let $signInPassword = document.querySelector("#signInPassword");
+let $errorLogIn = document.querySelector("#errorLogIn");
 
 let $signUpWrapperInp = document.querySelectorAll(
   "#signUpWrapper>div>div>input"
@@ -264,6 +265,7 @@ function editBtn(id) {
 //////////////////////////////////////////////////////////// sign in btn
 
 $signInBtn.addEventListener("click", () => {
+  let flag = 0;
   fetch("https://6912e51452a60f10c8232605.mockapi.io/users", {
     method: "GET",
     headers: { "content-type": "application/json" },
@@ -295,8 +297,10 @@ $signInBtn.addEventListener("click", () => {
                 Edit Profile
               </button>
               `;
+          flag++;
         }
       });
+      $errorLogIn.classList.remove("hidden");
       // Do something with the list of tasks
     })
     .catch((error) => {
