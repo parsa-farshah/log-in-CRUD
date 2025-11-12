@@ -28,14 +28,14 @@ let $signUpWrapperInp = document.querySelectorAll(
 
 ///////////////////////////////////////////////////////// go to sign in page
 $sigInBtnPage.addEventListener("click", () => {
-  $signUpWrapper.classList.add("left-[130%]");
+  $signUpWrapper.classList.add("left-[180%]");
   $signInWrapper.classList.remove("-left-full");
   $signInWrapper.classList.add("left-1/2");
 });
 
 ///////////////////////////////////////////////////////// go to sign up page
 $signUpBtnPage.addEventListener("click", () => {
-  $signUpWrapper.classList.remove("left-[130%]");
+  $signUpWrapper.classList.remove("left-[180%]");
   $signUpWrapper.classList.add("left-1/2");
   $signInWrapper.classList.remove("left-1/2");
   $signInWrapper.classList.add("-left-full");
