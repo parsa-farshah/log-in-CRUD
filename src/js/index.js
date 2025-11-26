@@ -263,6 +263,7 @@ function editBtn(id) {
 ///////////////////////////////////////////////// endedit data
 
 //////////////////////////////////////////////////////////// sign in btn
+let $alertLogIn = document.querySelector("#alertLogIn")
 
 $signInBtn.addEventListener("click", () => {
   let flag = 0;
@@ -282,6 +283,14 @@ $signInBtn.addEventListener("click", () => {
           val.email == $signInEmail.value &&
           val.password == $signInPassword.value
         ) {
+          // alert add Account created successfully.
+          $alertLogIn.classList.remove("-left-full");
+          $alertLogIn.classList.add("-left-0");
+          setTimeout(() => {
+            $alertLogIn.classList.remove("-left-0");
+            $alertLogIn.classList.add("-left-full");
+          }, 2000);
+
           $signInWrapper.classList.add("hidden");
           $myUserName.value = val.username;
           $myEmail.value = val.email;
